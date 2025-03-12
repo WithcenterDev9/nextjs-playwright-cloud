@@ -24,7 +24,8 @@ jobs:
       - name: Building
         run: npm run build
       - name: Test deploy
-        run: echo "DONE: Sucessfully uploaded to the server"
+        run: | 
+          echo "DONE: Sucessfully uploaded to the server"
         # below is deploying to cloudflare
       # - name: Deploy to the cloudflare
       #   uses: cloudflare/wrangler-action@v3
