@@ -3,15 +3,17 @@
     "main": ".open-next/worker.js",
     "name": "njs-playwright",
     "compatibility_date": "2025-03-12",
-    "compatibility_flags": ["nodejs_compat"],
+    "compatibility_flags": [
+        "nodejs_compat"
+    ],
     "assets": {
         "directory": ".open-next/assets",
         "binding": "ASSETS"
     },
     "kv_namespaces": [
         {
-          "binding": "NEXT_CACHE_WORKERS_KV",
-          "id": "c0e43ae7bd92447eb2f70b482ed0666f"
+            "binding": "NEXT_CACHE_WORKERS_KV",
+            "id": "c0e43ae7bd92447eb2f70b482ed0666f"
         }
-      ]
+    ]
 }

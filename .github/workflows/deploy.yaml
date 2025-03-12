@@ -31,7 +31,7 @@ jobs:
       - name: Testing E2E
         run: npm run test:e2e
       - name: Building
-        run: npm run build
+        run: npm run build:cloudflare
       # - name: Test deploy
       #   run: | 
       #     echo "DONE: Sucessfully uploaded to the server"
