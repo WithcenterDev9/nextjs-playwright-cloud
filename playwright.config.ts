@@ -8,8 +8,8 @@ export default defineConfig({
     },
     retries: process.env.CI ? 2 : 0,
     workers: process.env.CI ? 1 : undefined,
-    outputDir: "/test-e2e-results",
-    testDir: "/test-e2e",
+    outputDir: "./test-e2e-results",
+    testDir: "./test-e2e",
     projects:
         [
             {
