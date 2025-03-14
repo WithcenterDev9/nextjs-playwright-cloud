@@ -28,22 +28,27 @@ export default function LoginForm() {
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
 
-        if (!formData.username) {
-            setFormStatus({ type: "failed", statusMsg: "Username is required" });
-            return;
-        }
+        // if (!formData.username) {
+        //     setFormStatus({ type: "failed", statusMsg: "Username is required" });
+        //     return;
+        // }
 
-        if (!formData.password) {
-            setFormStatus({ type: "failed", statusMsg: "Password is required" });
-            return;
-        }
+        // if (!formData.password) {
+        //     setFormStatus({ type: "failed", statusMsg: "Password is required" });
+        //     return;
+        // }
 
-        if (formData.username !== "frederick" || formData.password !== "frederickpassword") {
-            setFormStatus({ type: "failed", statusMsg: "Incorrect Credentials" });
-            return;
-        }
+        // if (formData.username !== "frederick" || formData.password !== "frederickpassword") {
+        //     setFormStatus({ type: "failed", statusMsg: "Incorrect Credentials" });
+        //     return;
+        // }
 
-        setFormStatus({ type: "success", statusMsg: "Login successful!" });
+        // setFormStatus({ type: "success", statusMsg: "Login successful!" });
+
+        
+
+
+
         // Reset form
         setFormData({ username: '', password: '' });
     }

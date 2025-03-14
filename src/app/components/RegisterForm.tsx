@@ -64,7 +64,7 @@ export default function RegisterForm() {
         //     return;
         // }
 
-        const result = validateRegisterForm(formData.username, formData.email, formData.password);
+        const result = validateRegisterForm(formData.username.trim(), formData.email.trim(), formData.password);
 
         if (!result.isValid && result.status) {
             console.log(result.status);

@@ -11,12 +11,18 @@ export function validateRegisterForm(
     email: string,
     password: string
 ): ValidationResult {
-
     if (!username) {
         return {
             isValid: false,
             status: { type: "failed", statusMsg: "Username is required" }
         }
+    }
+
+    if (/\s/.test(username)) { // Check if username contains spaces
+        return {
+            isValid: false,
+            status: { type: "failed", statusMsg: "Username cannot contain spaces" }
+        };
     }
 
     if (username.length < 3) {
@@ -49,5 +55,31 @@ export function validateRegisterForm(
     return {
         isValid: true,
         status: { type: "success", statusMsg: "Registration successful!" }
+    }
+}
+
+
+export function validateLoginForm(
+    username: string,
+    password: string,
+): ValidationResult {
+
+    if (!username) {
+        return {
+            isValid: false,
+            status: { type: "failed", statusMsg: "Username is required" }
+        }
+    }
+
+    if (!password) {
+        return {
+            isValid: false,
+            status: { type: "failed", statusMsg: "Password is required" }
+        }
+    }
+
+    return {
+        isValid: true,
+        status: { type: "success", statusMsg: "Login Successful!" }
     }
 }

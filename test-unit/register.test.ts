@@ -16,6 +16,17 @@ describe("Test for the register functions", () => {
         assert.equal(result.status?.statusMsg, 'Username is required');
     })
 
+    it("should validate if a username have a whitespace", () => {
+        const result = validateRegisterForm(
+            "user name",
+            faker.internet.email(),
+            faker.internet.password()
+        );
+
+        assert.equal(result.isValid, false);
+        assert.equal(result.status?.statusMsg, "Username cannot contain spaces");
+    });
+
     it("should validate a below 3 characters in a username", () => {
         const result = validateRegisterForm(
             "as",
