@@ -19,7 +19,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@faker-js/faker": "^9.6.0",
-    "@opennextjs/cloudflare": "^0.5.11",
+    "@opennextjs/cloudflare": "^0.5.10",
     "@playwright/test": "^1.51.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20.17.24",
@@ -30,6 +30,6 @@
     "tailwindcss": "^4",
     "tsx": "^4.19.3",
     "typescript": "^5",
-    "wrangler": "^4.0.0"
+    "wrangler": "^3.114.1"
   }
 }
