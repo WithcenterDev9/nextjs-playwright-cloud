@@ -25,6 +25,8 @@ jobs:
           node-version: "20.x"
       - name: Installing deps
         run: npm ci
+      - name: Unit Testing
+        run: npm run test
       - name: Installing playwright browsers
         # --with-deps meaning it will install all libraries, font dependencies, and media codecs 
         run: npx playwright install --with-deps
