@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { validateRegisterForm } from "./functions/authfunctions";
 
 
 type FormData = {
@@ -34,37 +35,47 @@ export default function RegisterForm() {
         setFormStatus({ type: "neutral", statusMsg: "" });
 
         // Validate username
-        if (!formData.username) {
-            setFormStatus({ type: "failed", statusMsg: "Username is required" });
-            return;
-        }
-        if (formData.username.length < 3) {
-            setFormStatus({ type: "failed", statusMsg: "Username must be at least 3 characters" });
-            return;
-        }
+        // if (!formData.username) {
+        //     setFormStatus({ type: "failed", statusMsg: "Username is required" });
+        //     return;
+        // }
+        // if (formData.username.length < 3) {
+        //     setFormStatus({ type: "failed", statusMsg: "Username must be at least 3 characters" });
+        //     return;
+        // }
 
         // Validate email
-        if (!formData.email) {
-            setFormStatus({ type: "failed", statusMsg: "Email is required" });
-            return;
-        }
-        if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            setFormStatus({ type: "failed", statusMsg: "Please enter a valid email address" });
-            return;
-        }
+        // if (!formData.email) {
+        //     setFormStatus({ type: "failed", statusMsg: "Email is required" });
+        //     return;
+        // }
+        // if (!/\S+@\S+\.\S+/.test(formData.email)) {
+        //     setFormStatus({ type: "failed", statusMsg: "Please enter a valid email address" });
+        //     return;
+        // }
 
         // Validate password
-        if (!formData.password) {
-            setFormStatus({ type: "failed", statusMsg: "Password is required" });
+        // if (!formData.password) {
+        //     setFormStatus({ type: "failed", statusMsg: "Password is required" });
+        //     return;
+        // }
+        // if (formData.password.length < 6) {
+        //     setFormStatus({ type: "failed", statusMsg: "Password must be at least 6 characters" });
+        //     return;
+        // }
+
+        const result = validateRegisterForm(formData.username, formData.email, formData.password);
+
+        if (!result.isValid && result.status) {
+            console.log(result.status);
+            setFormStatus(result.status);
             return;
-        }
-        if (formData.password.length < 6) {
-            setFormStatus({ type: "failed", statusMsg: "Password must be at least 6 characters" });
-            return;
+        } else {
+            setFormStatus(result.status!);
         }
 
+
         // If all validations pass
-        setFormStatus({ type: "success", statusMsg: "Registration successful!" });
         // Reset form
         setFormData({ username: '', email: '', password: '' });
     }
