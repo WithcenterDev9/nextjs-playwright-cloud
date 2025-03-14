@@ -23,6 +23,16 @@ describe("Test for the login function", () => {
         assert.equal(result.status!.statusMsg, "Password is required")
     })
 
+    it("should validate if incorrect credentials", () => {
+        const result = validateLoginForm(
+            faker.internet.username(),
+            faker.internet.password(),
+        )
+
+        assert.equal(result.isValid, false);
+        assert.equal(result.status!.statusMsg, "Incorrect Credentials")
+    });
+
     it("should be logged in when inputting correct credentials", () => {
         const result = validateLoginForm(
             "frederick",

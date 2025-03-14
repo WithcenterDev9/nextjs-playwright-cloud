@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { validateLoginForm } from "./functions/authfunctions";
 
 
 type FormData = {
@@ -46,8 +47,15 @@ export default function LoginForm() {
         // setFormStatus({ type: "success", statusMsg: "Login successful!" });
 
         
+        const result = validateLoginForm(formData.username.trim(), formData.password);
 
-
+        if (!result.isValid && result.status) {
+            console.log(result.status);
+            setFormStatus(result.status);
+            return;
+        } else {
+            setFormStatus(result.status!);
+        }
 
         // Reset form
         setFormData({ username: '', password: '' });

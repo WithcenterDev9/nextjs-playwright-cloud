@@ -78,6 +78,13 @@ export function validateLoginForm(
         }
     }
 
+    if (username !== "frederick" && password !== "frederickpassword") {
+        return {
+            isValid: false,
+            status: { type: "failed", statusMsg: "Incorrect Credentials" }
+        }
+    }
+
     return {
         isValid: true,
         status: { type: "success", statusMsg: "Login Successful!" }
